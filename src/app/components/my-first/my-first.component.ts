@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     selector : "my-first",
     templateUrl : "./my-first.component.html"
 })
-export class MyFirst {
+export class MyFirstComponent {
     public tittle : string;
 
     constructor() {
