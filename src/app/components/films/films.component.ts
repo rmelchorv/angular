@@ -11,7 +11,7 @@ export class FilmsComponent implements OnInit {
   constructor() { 
     this.films = [
       new Film("Dora","Animation",2000,"James Bobby"),
-      new Film("El demonio","Terror",2001,"Victor Salva"),
+      new Film("Jeepers Creepers","Terror",2001,"Victor Salva"),
       new Film("Revolver","Crimen",2005,"Unkown")
     ];
   }
