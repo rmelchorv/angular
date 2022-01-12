@@ -1,11 +1,27 @@
 <br>
-<div style="text-align: center;">
-    <h2>Available films:</h2>
-</div>
-<div class="container content">
+<div class="container content" *ngIf="showFilms">
+    <div style="text-align: center;">
+        <h2>Available films:</h2>
+    </div>
     <ul>
-        <li *ngFor="let film of films">
-            {{film.tittle}}, {{ film.year }}
+        <li *ngFor="let film of films; let i = index">
+            <!-- {{i}} -->
+            {{film.tittle}}, {{ film.year }}.
+
+            <span class="text-danger fw-bold blink" *ngIf="film.clasification == 0">
+                No apta para todo público!
+            </span>
         </li>
     </ul>
+</div>
+
+<div class="container content">
+    <div style="text-align: center;">
+        <h3>Géneros:</h3>
+    </div>
+    <ol>
+        <li *ngFor="let genre of genres">
+            {{genre}}.
+        </li>
+    </ol>
 </div>
