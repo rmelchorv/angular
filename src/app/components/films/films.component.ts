@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Config } from 'src/global-config';
 import { Film  } from 'src/app/models/films';
 
@@ -26,7 +26,7 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
     this.showFilms = true;
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes : SimpleChanges) {
     console.log("OnChanges executed!");
   }
 

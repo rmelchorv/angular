@@ -1,6 +1,6 @@
 <br>
 <div class="container content" *ngIf="showFilms">
-    <div [ngStyle]="{'text-align':'center','color':config.color}"><!--,'background':config.background}"-->
+    <div class="text-center" [ngStyle]="{'color':config.color}">
         <h3>Available films:</h3>
     </div>
 
@@ -16,13 +16,19 @@
     </ul>
 </div>
 <div class="container content">
-    <p style="text-align: center;">
-        <span class="fw-bold">Add film: </span>
-        <input type="text" value="{{filmName}}" />
-    </p>
+    <div class="row">
+        <label class="col-auto col-form-label fw-bold" for="filmName">Film name:</label>
+        <div class="col-auto">
+            <input type="text" class="form-control form-control-sm" id="filmName" value="{{filmName}}" [ngStyle]="{'background':config.background}" />
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-primary btn-sm">Add</button>
+        </div>
+    </div>
 </div>
+<br>
 <div class="container content">
-    <div style="text-align: center;">
+    <div class="text-center">
         <h5>Genres:</h5>
     </div>
 
