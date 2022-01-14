@@ -1,8 +1,9 @@
 <br>
 <div class="container content" *ngIf="showFilms">
-    <div style="text-align: center;">
-        <h2>Available films:</h2>
+    <div [ngStyle]="{'text-align':'center','color':config.color}"><!--,'background':config.background}"-->
+        <h3>Available films:</h3>
     </div>
+
     <ul>
         <li *ngFor="let film of films; let i = index">
             <!-- {{i}} -->
@@ -14,11 +15,17 @@
         </li>
     </ul>
 </div>
-
+<div class="container content">
+    <p style="text-align: center;">
+        <span class="fw-bold">Add film: </span>
+        <input type="text" value="{{filmName}}" />
+    </p>
+</div>
 <div class="container content">
     <div style="text-align: center;">
-        <h3>Géneros:</h3>
+        <h5>Genres:</h5>
     </div>
+
     <ol>
         <li *ngFor="let genre of genres">
             {{genre}}.

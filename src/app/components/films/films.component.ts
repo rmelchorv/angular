@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, DoCheck } from '@angular/core';
+import { Config } from 'src/global-config';
 import { Film  } from 'src/app/models/films';
+
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent implements OnInit {
+export class FilmsComponent implements OnChanges, OnInit, OnDestroy, DoCheck {
+  public filmName : string;
   public films : Array<Film>;
   public genres : Array<string>;
   public showFilms : boolean;
+  public config = Config;
 
-  constructor() { 
+  constructor() {
+    this.filmName = "Default value";
     this.films = [
       new Film("Dora and the Lost City of Gold","Adventure",2019,"James Bobin",1,"EE.UU."),
       new Film("Jeepers Creepers","Terror",2001,"Victor Salva",1,"EE.UU."),
@@ -21,8 +26,22 @@ export class FilmsComponent implements OnInit {
     this.showFilms = true;
   }
 
+  ngOnChanges() {
+    console.log("OnChanges executed!");
+  }
+
   ngOnInit(): void {
-    this.getGenres();
+    setTimeout(() => {
+      this.getGenres()
+    },1000);
+  }
+
+  ngDoCheck() {
+    console.log("DoCheck executed!");
+  }
+
+  ngOnDestroy() {
+    console.log("OnDestroy executed!");
   }
 
   getGenres() {
