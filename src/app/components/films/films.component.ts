@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Config } from 'src/global-config';
 import { Film  } from 'src/app/models/films';
 
@@ -7,7 +7,7 @@ import { Film  } from 'src/app/models/films';
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent implements OnChanges, OnInit, OnDestroy, DoCheck {
+export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   public filmName : string;
   public films : Array<Film>;
   public genres : Array<string>;
@@ -34,6 +34,7 @@ export class FilmsComponent implements OnChanges, OnInit, OnDestroy, DoCheck {
     setTimeout(() => {
       this.getGenres()
     },1000);
+    console.log("OnInit executed!");
   }
 
   ngDoCheck() {
