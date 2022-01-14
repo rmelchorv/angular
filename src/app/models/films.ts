@@ -18,11 +18,11 @@ export class Film {
     */
 
     constructor(
-        public tittle : string,
-        public genre : string,
-        public year: number,
-        public director : string,
-        public clasification : number,
+        tittle : string,
+        genre : string,
+        year: number,
+        director : string,
+        clasification : number,
         country : string
     ) { }
 }
