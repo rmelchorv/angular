@@ -81,8 +81,11 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
     this.genres.splice(index, 1);
   }
 
-  onEnter() {
-    this.changeColor();
+  onEnter(array? : Array<string>) {
+    if (array !== undefined)
+      this.addGenre(this.genreName);
+    else
+      this.changeColor();
   }
 
   onFocus() {

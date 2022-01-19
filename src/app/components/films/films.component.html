@@ -19,7 +19,8 @@
         <label class="col-sm-4 col-form-label fw-bold text-end" for="filmName">Genre name:</label>
         <div class="col-sm-6">
             <input type="text" class="form-control form-control-sm" id="filmName"
-             [(ngModel)]="genreName" [ngStyle]="{'background':config.background}" />
+             [(ngModel)]="genreName" [ngStyle]="{'background':config.background}" 
+             (keyup.enter)="onEnter(genres)"/>
         </div>
         <div class="col-sm-2">
             <button class="btn btn-outline-primary btn-sm" (click)="onAdd()">Add</button>
