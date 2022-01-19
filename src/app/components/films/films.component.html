@@ -5,8 +5,7 @@
     </div>
 
     <ul>
-        <li *ngFor="let film of films; let i = index">
-            <!-- {{i}} -->
+        <li *ngFor="let film of films">
             {{film.tittle}}, {{ film.year }}.
 
             <span class="text-danger fw-bold blink" *ngIf="film.clasification == 0">
@@ -17,12 +16,26 @@
 </div>
 <div class="container content">
     <div class="row">
-        <label class="col-auto col-form-label fw-bold" for="filmName">Film name:</label>
-        <div class="col-auto">
-            <input type="text" class="form-control form-control-sm" id="filmName" value="{{filmName}}" [ngStyle]="{'background':config.background}" />
+        <label class="col-sm-4 col-form-label fw-bold text-end" for="filmName">Genre name:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control form-control-sm" id="filmName"
+             [(ngModel)]="genreName" [ngStyle]="{'background':config.background}" />
         </div>
-        <div class="col-auto">
-            <button class="btn btn-outline-primary btn-sm">Add</button>
+        <div class="col-sm-2">
+            <button class="btn btn-outline-primary btn-sm" (click)="onAdd()">Add</button>
+        </div>
+    </div>
+</div>
+<div class="container content">
+    <div class="row">
+        <label class="col-sm-4 col-form-label fw-bold text-end" for="colorName">Color name:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control form-control-sm" id="colorName"
+             [(ngModel)]="colorName" [ngStyle]="{'background':config.background}"
+             (focus)="onFocus()" (blur)="onBlur()" />
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-outline-primary btn-sm" (click)="onChange()">Change</button>
         </div>
     </div>
 </div>
@@ -33,7 +46,8 @@
     </div>
 
     <ol>
-        <li *ngFor="let genre of genres">
+        <li *ngFor="let genre of genres; let i = index">
+            <button class="btn btn-outline-primary btn-sm mx-1" (click)="onDel(i)">Del</button>
             {{genre}}.
         </li>
     </ol>
