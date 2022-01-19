@@ -38,8 +38,8 @@
 
   <br>
   <div [ngSwitch]="showComponent">
-    <button *ngSwitchCase="true" class="btn btn-outline-secondary btn-sm" (click)="hideShowComponent()">Hide component!</button>
-    <button *ngSwitchDefault class="btn btn-outline-dark btn-sm" (click)="hideShowComponent()">Show component!</button>
+    <button *ngSwitchCase="true" class="btn btn-outline-secondary btn-sm" (click)="onHideShowComponent()">Hide component!</button>
+    <button *ngSwitchDefault class="btn btn-outline-dark btn-sm" (click)="onHideShowComponent()">Show component!</button>
   </div>
 
   <app-films *ngIf="showComponent"></app-films>

@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'angular';
   showComponent = true;
 
-  hideShowComponent() {
+  onHideShowComponent() {
     this.showComponent = !this.showComponent;
   }
 }

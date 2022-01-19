@@ -74,11 +74,15 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   }
 
   onChange() {
-    this.config.color = this.colorName;
+    this.changeColor();
   }
 
   onDel(index : number) {
     this.genres.splice(index, 1);
+  }
+
+  onEnter() {
+    this.changeColor();
   }
 
   onFocus() {
@@ -92,6 +96,10 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   addGenre(genre : string) {
     if(this.genres.indexOf(genre)<0)
         this.genres.push(genre);
+  }
+
+  changeColor() {
+    this.config.color = this.colorName;
   }
 
   getGenres() {
