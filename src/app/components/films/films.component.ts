@@ -66,7 +66,7 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   //#region Events
 
   onAdd() {
-    this.genres.push(this.genreName);
+    this.addGenre(this.genreName);
   }
 
   onBlur() {
@@ -89,10 +89,14 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
 
   //#region Methods
 
+  addGenre(genre : string) {
+    if(this.genres.indexOf(genre)<0)
+        this.genres.push(genre);
+  }
+
   getGenres() {
     this.films.forEach((film) => {
-      if(this.genres.indexOf(film.genre)<0)
-        this.genres.push(film.genre);
+      this.addGenre(film.genre)
     });
   }
 
