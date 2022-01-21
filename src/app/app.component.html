@@ -34,13 +34,48 @@
 
   </div>
 
+  <!--
   <app-first></app-first>
 
-  <br>
-  <div [ngSwitch]="showComponent">
+  <div class="mt-2" [ngSwitch]="showComponent">
     <button *ngSwitchCase="true" class="btn btn-outline-secondary btn-sm" (click)="onHideShowComponent()">Hide component!</button>
     <button *ngSwitchDefault class="btn btn-outline-dark btn-sm" (click)="onHideShowComponent()">Show component!</button>
   </div>
 
   <app-films *ngIf="showComponent"></app-films>
+  -->
+
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <a class="navbar-brand me-2" routerLink="/home">Routes-Navbar</a>
+        <button class="navbar-toggler" type="button" (click)="onToggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" [ngClass]="{'show':showRoutes}" id="navbarRoutes">
+          <div class="navbar-nav">
+            <a class="nav-link" [class.active]="rla.isActive"
+             routerLinkActive #rla="routerLinkActive" routerLink="/home">
+              <i class="bi mx-1" [ngClass]="rla.isActive?'bi-house-fill':'bi-house'">
+              </i>Home
+            </a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/films">
+              <i class="bi bi-film mx-1"></i>Films
+            </a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/first">
+              <i class="bi bi-123 mx-1"></i>First
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+  </div>
+
+  <router-outlet></router-outlet>
+
 </div>

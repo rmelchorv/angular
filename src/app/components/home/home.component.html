@@ -1,0 +1,13 @@
+<div class="container content text-center mt-3">
+
+  <div *ngIf="validUser; then isValidUser; else notValidUser"></div>
+  <ng-template #isValidUser>
+    <h6>Valid user!</h6>
+    <button class="btn btn-outline-secondary btn-sm" (click)="onLoginLogout()">Logout</button>
+  </ng-template>
+  <ng-template #notValidUser>
+    <h6>Not valid user!</h6>
+    <button class="btn btn-outline-secondary btn-sm" (click)="onLoginLogout()">Login</button>
+  </ng-template>
+  
+</div>

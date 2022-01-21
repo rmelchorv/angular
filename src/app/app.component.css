@@ -20,6 +20,10 @@ p {
   margin: 0;
 }
 
+.active {
+  font-weight: 500;
+}
+
 .spacer {
   flex: 1;
 }

@@ -1,19 +1,26 @@
-<br>
-<div class="container content" *ngIf="showFilms">
+<div class="container content mt-3" *ngIf="showFilms">
     <div class="text-center" [ngStyle]="{'color':config.color}">
         <h3>Available films:</h3>
     </div>
 
     <ul>
         <li *ngFor="let film of films">
-            {{film.tittle}}, {{ film.year }}.
+            {{film.tittle}}, {{film.year}}.
 
-            <span class="text-danger fw-bold blink" *ngIf="film.clasification == 0">
+            <span [ngClass]="film.price >= 500?'expensive':'fw-bold'"> 
+            <!--  [class.expensive]="film.price >= 500"  -->
+                ${{film.price}}
+            </span>
+
+            <span class="text-danger fw-bold blink ms-2" *ngIf="film.clasification == 0">
                 No apta para todo público!
             </span>
         </li>
     </ul>
 </div>
+<div class="mb-3 text-center">
+    <button class="btn btn-outline-dark btn-sm" (click)="onGoHome()">Go home!</button>
+  </div>
 <div class="container content">
     <div class="row">
         <label class="col-sm-4 col-form-label fw-bold text-end" for="filmName">Genre name:</label>
@@ -40,9 +47,8 @@
         </div>
     </div>
 </div>
-<br>
 <div class="container content">
-    <div class="text-center">
+    <div class="text-center mt-2">
         <h5>Genres:</h5>
     </div>
 

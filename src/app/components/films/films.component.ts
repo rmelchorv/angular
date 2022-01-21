@@ -1,6 +1,7 @@
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Config } from 'src/global-config';
-import { Film  } from 'src/app/models/films';
+import { Film  } from 'src/app/models/film';
 
 @Component({
   selector: 'app-films',
@@ -21,16 +22,28 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
 
   //#region Constructor
 
-  constructor() {
+  constructor(
+    private route : ActivatedRoute,
+    private router : Router
+  ) {
     this.colorName = this.config.color;
     this.films = [
-      new Film("Dora and the Lost City of Gold","Adventure",2019,"James Bobin",1,"EE.UU."),
-      new Film("Jeepers Creepers","Terror",2001,"Victor Salva",1,"EE.UU."),
-      new Film("Revolver","Crime",2005,"Guy Ritchie",1,"U.K."),
-      new Film("Child's Play","Terror",1988,"Tom Holland",0,"EE.UU.")
+      new Film("Dora and the Lost City of Gold","Adventure",2019,"James Bobin",1,"EE.UU.",100),
+      new Film("Jeepers Creepers","Terror",2001,"Victor Salva",1,"EE.UU.",250),
+      new Film("Revolver","Crime",2005,"Guy Ritchie",1,"U.K.",250),
+      new Film("Child's Play","Terror",1988,"Tom Holland",0,"EE.UU.",500)
     ];
     this.genres = [];
     this.genreName = "New genre";
+
+    this.route.params.subscribe((params : Params) => {
+      console.log(params["lang"]);
+      console.log(params["duration"]);
+
+      if(params["lang"] == "HOME")
+        this.router.navigate(["/home"]);
+    });
+
     this.showFilms = true;
   }
 
@@ -90,6 +103,10 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
 
   onFocus() {
     console.log("OnFocus executed!");
+  }
+
+  onGoHome() {
+    this.router.navigate(["/home"]);
   }
 
   //#endregion Events
