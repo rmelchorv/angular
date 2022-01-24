@@ -2,6 +2,7 @@ import { ModuleWithProviders } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { ErrorComponent } from "./components/error/error.component";
+import { ExternalComponent } from "./components/external/external.component";
 import { FilmsComponent } from "./components/films/films.component";
 import { FirstComponent } from "./components/first/first.component";
 import { HomeComponent } from "./components/home/home.component";
@@ -13,9 +14,9 @@ const routes : Routes = [
     {path:'films/:lang',component:FilmsComponent},
     {path:'films',component:FilmsComponent},
     {path:'first',component:FirstComponent},
+    {path:'external',component:ExternalComponent},
     {path:'**',component:ErrorComponent}
 ];
 
 export const AppRountingModule : ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes);
 export const AppRoutingProviders : any[] = new Array();
-

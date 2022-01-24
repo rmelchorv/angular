@@ -2,11 +2,13 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Config } from 'src/global-config';
 import { Film  } from 'src/app/models/film';
+import { FilmsService } from 'src/app/services/films.service';
 
 @Component({
-  selector: 'app-films',
-  templateUrl: './films.component.html',
-  styleUrls: ['./films.component.css']
+  providers : [FilmsService],
+  templateUrl : './films.component.html',
+  selector : 'app-films',
+  styleUrls : ['./films.component.css']
 })
 export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   //#region Attributes
@@ -23,16 +25,20 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   //#region Constructor
 
   constructor(
+    private filmsService : FilmsService,
     private route : ActivatedRoute,
     private router : Router
   ) {
     this.colorName = this.config.color;
+    this.films = this.filmsService.getFilms();
+    /*
     this.films = [
       new Film("Dora and the Lost City of Gold","Adventure",2019,"James Bobin",1,"EE.UU.",100),
       new Film("Jeepers Creepers","Terror",2001,"Victor Salva",1,"EE.UU.",250),
       new Film("Revolver","Crime",2005,"Guy Ritchie",1,"U.K.",250),
       new Film("Child's Play","Terror",1988,"Tom Holland",0,"EE.UU.",500)
     ];
+    */
     this.genres = [];
     this.genreName = "New genre";
 
