@@ -2,10 +2,10 @@ import { ModuleWithProviders } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { ErrorComponent } from "./components/error/error.component";
-import { ExternalComponent } from "./components/external/external.component";
 import { FilmsComponent } from "./components/films/films.component";
 import { FirstComponent } from "./components/first/first.component";
 import { HomeComponent } from "./components/home/home.component";
+import { UserListComponent } from "./components/user-list/user-list.component";
 
 const routes : Routes = [
     {path:'',component:HomeComponent},
@@ -14,7 +14,7 @@ const routes : Routes = [
     {path:'films/:lang',component:FilmsComponent},
     {path:'films',component:FilmsComponent},
     {path:'first',component:FirstComponent},
-    {path:'external',component:ExternalComponent},
+    {path:'user-list',component:UserListComponent},
     {path:'**',component:ErrorComponent}
 ];
 

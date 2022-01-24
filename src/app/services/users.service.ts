@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 @Injectable()
-export class ExternalService {
+export class UsersService {
     public url : string;
 
     constructor(

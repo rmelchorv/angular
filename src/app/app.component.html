@@ -57,9 +57,9 @@
 
         <div class="collapse navbar-collapse" [ngClass]="{'show':showRoutes}" id="navbarRoutes">
           <div class="navbar-nav">
-            <a class="nav-link" [class.active]="rla.isActive"
-             routerLinkActive #rla="routerLinkActive" routerLink="/home">
-              <i class="bi mx-1" [ngClass]="rla.isActive?'bi-house-fill':'bi-house'">
+            <a class="nav-link" [class.active]="home.isActive"
+             routerLinkActive #home="routerLinkActive" routerLink="/home">
+              <i class="bi mx-1" [ngClass]="home.isActive?'bi-house-fill':'bi-house'">
               </i>Home
             </a>
             <a class="nav-link" routerLinkActive="active" routerLink="/films">
@@ -68,8 +68,10 @@
             <a class="nav-link" routerLinkActive="active" routerLink="/first">
               <i class="bi bi-123 mx-1"></i>First
             </a>
-            <a class="nav-link" routerLinkActive="active" routerLink="/external">
-              <i class="bi bi-activity mx-1"></i>External
+            <a class="nav-link" [class.active]="userList.isActive"
+             routerLinkActive #userList="routerLinkActive" routerLink="/user-list">
+              <i class="bi mx-1" [ngClass]="userList.isActive?'bi-people-fill':'bi-people'">
+              </i>User list
             </a>
           </div>
         </div>
