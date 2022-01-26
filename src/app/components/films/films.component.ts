@@ -1,14 +1,14 @@
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Config } from 'src/global-config';
 import { Film  } from 'src/app/models/film';
-import { FilmsService } from 'src/app/services/films.service';
+import { FilmService } from 'src/app/services/film.service';
 
 @Component({
-  providers : [FilmsService],
-  templateUrl : './films.component.html',
+  providers : [FilmService],
   selector : 'app-films',
-  styleUrls : ['./films.component.css']
+  styleUrls : ['./films.component.css'],
+  templateUrl : './films.component.html'
 })
 export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   //#region Attributes
@@ -25,29 +25,24 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   //#region Constructor
 
   constructor(
-    private filmsService : FilmsService,
-    private route : ActivatedRoute,
+    private activatedRoute : ActivatedRoute,
+    private filmService : FilmService,
     private router : Router
   ) {
     this.colorName = this.config.color;
-    this.films = this.filmsService.getFilms();
-    /*
-    this.films = [
-      new Film("Dora and the Lost City of Gold","Adventure",2019,"James Bobin",1,"EE.UU.",100),
-      new Film("Jeepers Creepers","Terror",2001,"Victor Salva",1,"EE.UU.",250),
-      new Film("Revolver","Crime",2005,"Guy Ritchie",1,"U.K.",250),
-      new Film("Child's Play","Terror",1988,"Tom Holland",0,"EE.UU.",500)
-    ];
-    */
+    this.films = this.filmService.getFilms();
     this.genres = [];
-    this.genreName = "New genre";
+    this.genreName = "";
 
-    this.route.params.subscribe((params : Params) => {
-      console.log(params["lang"]);
-      console.log(params["duration"]);
+    this.activatedRoute.params.subscribe((params) => {
+      if (params["lang"] !== undefined) {
+        console.log(params["lang"]);
 
-      if(params["lang"] == "HOME")
-        this.router.navigate(["/home"]);
+        if(params["lang"] == "HOME")
+          this.router.navigate(["/home"]);
+      } 
+      if (params["duration"] !== undefined)
+        console.log(params["duration"]);
     });
 
     this.showFilms = true;
@@ -71,8 +66,6 @@ export class FilmsComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   ngDoCheck() {
     /*
     console.log("DoCheck executed!");
-    console.log(this.colorName);
-    console.log(this.genreName);
     */
   }
 

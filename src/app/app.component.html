@@ -71,7 +71,12 @@
             <a class="nav-link" [class.active]="userList.isActive"
              routerLinkActive #userList="routerLinkActive" routerLink="/user-list">
               <i class="bi mx-1" [ngClass]="userList.isActive?'bi-people-fill':'bi-people'">
-              </i>User list
+              </i>List
+            </a>
+            <a class="nav-link" [class.active]="create.isActive"
+             routerLinkActive #create="routerLinkActive" routerLink="/create">
+              <i class="bi mx-1" [ngClass]="create.isActive?'bi-person-plus-fill':'bi-person-plus'">
+              </i>Create
             </a>
           </div>
         </div>

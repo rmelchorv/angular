@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Film } from '../models/film';
 
 @Injectable()
-export class FilmsService {
+export class FilmService {
     public films : Array<Film>;
 
     constructor() {

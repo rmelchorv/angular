@@ -11,10 +11,11 @@ import { FilmsComponent } from './components/films/films.component';
 import { FirstComponent } from './components/first/first.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { NewUserComponent } from './components/new-user/new-user.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ErrorComponent, FilmsComponent, FirstComponent, HomeComponent, UserListComponent
+    AppComponent, ErrorComponent, FilmsComponent, FirstComponent, HomeComponent, UserListComponent, NewUserComponent
   ],
   imports: [
     AppRountingModule, BrowserModule, FormsModule, HttpClientModule
